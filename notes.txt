@@ -1,0 +1,7 @@
+Section 6 (Sharing data) 
++ Starting from V.79
+1- using req.body approach for sharing data has a disadavantage 
+that data will be shared for all users, this is due to node server
+
+Free templating engines : EJS, Pug (Jade), Handlebars is close to jsx
+To install them all : npm i --save ejs pug express-handlebars
