@@ -6,7 +6,7 @@ const app = express();
 
 console.log('app.get', app.get('title'));
 
-const products = ['hello']
+const products = []
 router.get('/add-product',(req, res, next) => {
     res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
 });
