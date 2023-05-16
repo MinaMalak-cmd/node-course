@@ -5,6 +5,7 @@ const shopRouter = require('./routes/shop');
 const path = require('path');
 const app = express();
 
+app.set('title', 'My Site')
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/admin', adminData.routes)

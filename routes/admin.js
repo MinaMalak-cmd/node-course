@@ -2,6 +2,9 @@ const path = require('path');
 const express = require('express');
 const rootDir = require('../utils/path');
 const router = express.Router();
+const app = express();
+
+console.log('app.get', app.get('title'));
 
 const products = ['hello']
 router.get('/add-product',(req, res, next) => {
