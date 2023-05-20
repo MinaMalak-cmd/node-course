@@ -7,7 +7,12 @@ const app = express();
 
 const products = []
 router.get('/add-product',(req, res, next) => {
-    res.render('add-product', {pageTitle: 'Add Product23'})
+    res.render('add-product', {
+        pageTitle: 'Add Product23', 
+        formsCSS: true, 
+        productCSS: true, 
+        activeAddProduct: true
+    })
 });
 
 router.post('/add-product',(req, res, next) => {
