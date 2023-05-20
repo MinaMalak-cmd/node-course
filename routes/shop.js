@@ -11,7 +11,6 @@ router.get('/',(req, res, next) => {
         hasProduct : products.length > 0,
         activeShop : true,
         productCSS : true,
-        // layout : false // if you want not to use layout 
     });
 });
 
