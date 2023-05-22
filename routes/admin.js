@@ -2,15 +2,12 @@ const express = require('express');
 const router = express.Router();
 const productController = require('../Controllers/Product/Products');
 
-const products = []
-router.get('/add-product',productController.getAddProduct);
+router.get('/add-product', productController.getAddProduct);
+router.post('/add-product', productController.postAddProduct);
+router.post('/delete-product', productController.deleteProduct);
 
-router.post('/add-product',(req, res, next) => {
-    products.push({name : req.body.title });
-    res.redirect('/');
-});
+// exports.routes = router; this for multiple exports 
 
-exports.routes = router;
-exports.products = products;
+module.exports = router; // this for single exports 
 
 
