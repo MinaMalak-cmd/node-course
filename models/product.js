@@ -4,12 +4,12 @@ const myPath  = require('../utils/path');
 
 const products = [];
 
+const p = path.join(path.dirname(require.main.filename), 'data', 'products.json');
 module.exports = class Product {
     constructor(t){
         this.title = t;
     }
     addProduct(){
-        const p = path.join(path.dirname(require.main.filename), 'data', 'products.json');
         fs.readFile(p, (err, data)=>{
             let products = [];
             if(!err) {
@@ -25,6 +25,12 @@ module.exports = class Product {
         products.splice(0, 1);
     }
     static getProducts(){
-        return products;
+        fs.readFile(p, 'utf8', (err,data) => {
+            if(!err) {
+                return JSON.parse(data);
+            }
+            return [];
+        });
+        // return products;
     }
 }
