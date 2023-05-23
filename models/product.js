@@ -24,13 +24,12 @@ module.exports = class Product {
     static deleteProduct(){
         products.splice(0, 1);
     }
-    static getProducts(){
-        fs.readFile(p, 'utf8', (err,data) => {
+    static getProducts(cb){
+        fs.readFile(p, (err,data) => {
             if(!err) {
-                return JSON.parse(data);
+                cb(JSON.parse(data));
             }
-            return [];
+            cb([]);
         });
-        // return products;
     }
 }

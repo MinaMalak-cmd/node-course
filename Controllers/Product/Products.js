@@ -15,15 +15,17 @@ exports.postAddProduct = (req, res, next) => {
     res.redirect('/');
 }
 exports.getAllProducts = (req, res, next) => {
-    const products = Product.getProducts();
-    res.render('shop', {
-        prods : products, 
-        pageTitle:"Hello!", 
-        path:"/",
-        value : 100, 
-        hasProduct : products?.length > 0,
-        activeShop : true,
-        productCSS : true,
+    Product.getProducts((products) => {
+        console.log("🚀 ~ file: Products.js:19 ~ Product.getProducts ~ products:", products)
+        res.render('shop', {
+            prods : products, 
+            pageTitle:"Hello!", 
+            path:"/",
+            value : 100, 
+            hasProduct : products?.length > 0,
+            activeShop : true,
+            productCSS : true,
+        });
     });
 }
 exports.deleteProduct = (req, res, next) => {
