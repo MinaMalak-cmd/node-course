@@ -16,7 +16,6 @@ exports.postAddProduct = (req, res, next) => {
 }
 exports.getAllProducts = (req, res, next) => {
     Product.getProducts((products) => {
-        console.log("🚀 ~ file: Products.js:19 ~ Product.getProducts ~ products:", products)
         res.render('shop', {
             prods : products, 
             pageTitle:"Hello!", 
