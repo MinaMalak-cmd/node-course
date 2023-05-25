@@ -3,7 +3,7 @@ const Product = require('../../models/productModel');
 exports.getAddProduct = (req, res, next) => {
     res.render('admin/add-product', {
         pageTitle: 'Add Product23', 
-        path: '/add-product',
+        path: '/admin/add-product',
         formsCSS: true, 
         productCSS: true, 
         activeAddProduct: true
@@ -20,6 +20,19 @@ exports.getAllProducts = (req, res, next) => {
             prods : products, 
             pageTitle:"Hello!", 
             path:"/",
+            value : 100, 
+            hasProduct : products?.length > 0,
+            activeShop : true,
+            productCSS : true,
+        });
+    });
+}
+exports.getAdminProducts = (req, res, next) => {
+    Product.getProducts((products) => {
+        res.render('admin/products', {
+            prods : products, 
+            pageTitle:"Hello!", 
+            path:"/admin/products",
             value : 100, 
             hasProduct : products?.length > 0,
             activeShop : true,
