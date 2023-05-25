@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const productController = require('../Controllers/Product/Products');
 
-router.get('/add-product', productController.getAddProduct);
+router.get('/products', productController.getAddProduct);
 router.post('/add-product', productController.postAddProduct);
 router.post('/delete-product', productController.deleteProduct);
 

@@ -1,7 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const myPath  = require('../utils/path');
-
 
 const p = path.join(path.dirname(require.main.filename), 'data', 'products.json');
 
@@ -29,7 +27,6 @@ module.exports = class Product {
         readDataFromFile((products) =>{
             let prod = [...products];
             prod.splice(0, 1);
-            console.log("🚀 ~ file: product.js:32 ~ Product ~ readDataFromFile ~ prod:", prod)
             fs.writeFile(p, JSON.stringify(prod), err => {
                 console.log(err);
             });
