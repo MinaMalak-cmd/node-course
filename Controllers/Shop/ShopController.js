@@ -1,4 +1,4 @@
-const Product = require('../../models/product');
+const Product = require('../../models/productModel');
 
 exports.addToCart = (req, res, next) => {
     res.render('shop/cart', {
@@ -14,7 +14,7 @@ exports.getAllProducts = (req, res, next) => {
         res.render('shop/product-list', {
             prods : products, 
             pageTitle:"Hello!", 
-            path:"/",
+            path:"/products",
             value : 100, 
             hasProduct : products?.length > 0,
             activeShop : true,

@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const adminRoutes = require('./routes/admin');
-const shopRouter = require('./routes/shop');
+const adminRoutes = require('./routes/adminRoute');
+const shopRouter = require('./routes/shopRoute');
 const ErrorController = require('./Controllers/Default/404');
 const path = require('path');
 const app = express();
