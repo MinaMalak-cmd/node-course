@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="get" >get</button>
+
+    <button id="post" >post</button>
+    <script>
+        const getBtn = document.getElementById("get");
+        const postBtn = document.getElementById("post");
+        getBtn.addEventListener('click', ()=>{
+        fetch("http://localhost:3005/feed/posts").then(res => res.json())
+            .then(resData => console.log(resData))
+            .catch(err => console.log(err));
+        });
+        postBtn.addEventListener('click', () => {
+            console.log("typeof", {
+                        "title":"Test from client",
+                        "content":"Test from client"
+                    }, typeof({
+                        "title":"Test from client",
+                        "content":"Test from client"
+                    }), typeof(JSON.stringify({
+                        "title":"Test from client",
+                        "content":"Test from client"
+                    })), JSON.stringify({
+                        "title":"Test from client",
+                        "content":"Test from client"
+                    }))
+            fetch("http://localhost:3005/feed/posts", {
+                    method:'POST',
+                    body: JSON.stringify({
+                        "title":"Test from client",
+                        "content":"Test from client"
+                    }),
+                    headers:{
+                        "Content-Type":"application/json"
+                    },
+            }).then(res => res.json())
+            .then(resData => console.log(resData))
+            .catch(err => console.log(err));
+        });
+        // To make server side receives request body you have to set two lines 
+        /*
+             headers:{
+                        "Content-Type":"application/json" // nstead of plain text format 
+             },
+             if you send request body as normal object, this will make server side fail, then you have to 
+             send it after converting it into json format
+             JSON.stringify({
+                        "title":"Test from client",
+                        "content":"Test from client"
+                    })
+        */
+    </script>
+</body>
+</html>
